@@ -1,0 +1,30 @@
+# Postman API Testing – Sample Project
+
+## Project Overview
+This repository contains a Postman project created to test a sample public API. It demonstrates how to structure API requests, add pre-request scripts, write tests in the Tests tab, and validate API responses.
+
+##  API Used
+Sample Public API – reqres.in  
+ URL: https://reqres.in/
+
+## Features Tested
+- GET request for fetching users
+- POST request for creating a post
+- PUT request for updating a post
+- DELETE request for removing a post
+
+##  Tools Used
+- Postman – API testing
+- JavaScript – for writing Tests in the Postman Tests tab
+- Postman Collection Runner – to execute all requests in a flow
+# Sample Test Logic in Tests Tab
+
+```javascript
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response has userId", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property("userId");
+});
